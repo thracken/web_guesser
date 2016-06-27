@@ -6,9 +6,11 @@
   </head>
   <body>
     <p>Guess a number!</p>
-    <p><%= message %> </p>
+    <p><%= message %></p>
+    <p><%= cheat_msg %></p>
     <form>
       <input type='text' name='guess' />
+      <input type="hidden" name="cheater" value='false' />
       <input type='submit' value='Guess' />
     </form>
   </body>

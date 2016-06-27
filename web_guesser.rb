@@ -20,6 +20,11 @@ end
 get '/' do
   guess = params["guess"]
   message = check_guess(guess.to_i) if !guess.nil?
-  bgcolor = get_bg_color(guess.to_i)
-  erb :index, :locals => {:number => SECRET, :message => message, :bgcolor => bgcolor}
+  bgcolor = get_bg_color(guess.to_i) if !guess.nil?
+  cheater = params['cheater']
+  if cheater == "true"
+    cheat_msg = "The secret number is #{SECRET}, you cheater."
+  end
+  erb :index, :locals => {:number => SECRET, :message => message, :bgcolor => bgcolor, :cheat_msg => cheat_msg}
+  #throw params.inspect
 end
